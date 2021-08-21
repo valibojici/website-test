@@ -21,13 +21,20 @@ button{
     padding: 0;
 }
 
-pre code {
-    padding: 0 !important;
+#content > pre code {
+    padding: 0;
 }
 
 pre.inline {
     display: inline;
  }
+
+pre.inline > code{
+    display: inline;
+    margin: 0px 5px;
+    padding: 1.5px 3px;
+    background-color: rgba(211, 211, 211, 0.534);
+}
  
 
 #line-no{
