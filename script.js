@@ -17,7 +17,7 @@ $('#button').on('click', async ()=>{
 
     $("#problem").text(code);
 
-    $("#solution").append($(`<p>${solution}</p>`));
+    $("#solution").html(solution);
  
     hljs.highlightAll();
 })
