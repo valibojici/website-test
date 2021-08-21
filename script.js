@@ -8,15 +8,16 @@ $('#button').on('click', async ()=>{
     let solution = data.solution;
     
     console.log(code);
+    console.log(solution);
 
     let lines = code.trim().split('\n').length;
     $("#line-no").text([...Array(lines).keys()].map(i => i + 1).join('\n'))
     
 
 
-    $("#code").text(code);
+    $("#problem").text(code);
 
-    $("solution").append($(`<p>${solution}</p>`));
+    $("#solution").append($(`<p>${solution}</p>`));
  
     hljs.highlightAll();
 })

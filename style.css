@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-#content{
+#content, #solution{
     font-size: 1.2rem;
     width: 100%;
     display: flex;
@@ -20,6 +20,14 @@ button{
 .codeblock{
     padding: 0;
 }
+
+pre code {
+    padding: 0 !important;
+}
+
+pre.inline {
+    display: inline;
+ }
  
 
 #line-no{
