@@ -1,1 +1,1 @@
-{"content": "#include <iostream>\n\nusing namespace std;\n\nint main(){\n\tcout << \"Hello world!\";\n}"}
+{"content": "#include &amp;lt;iostream&amp;gt;\n\nusing namespace std;\n\nint main(){\n\tcout &amp;lt;&amp;lt; $quot;Hello world!$quot;;\n}"}
