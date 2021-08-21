@@ -2,10 +2,10 @@ new ClipboardJS('.btn');
 
 $('#button').on('click', async ()=>{
     let data = await fetch('https://gist.githubusercontent.com/valibojici/f6806c38994cbbcabe0e3872f0ed15b8/raw/395c4115d6fdaeca10933382868a215301929c84/test2.cpp');
-    // let data = await fetch('https://raw.githubusercontent.com/valibojici/test/main/output.json');
+    // let data = await fetch('https://raw.githubusercontent.com/valibojici/website-test/main/output.json');
     let code = await data.text();
     // code = code.content;
-    console.log(code);
+    // console.log(code);
 
     let lines = code.trim().split('\n').length;
     $("#line-no").text([...Array(lines).keys()].map(i => i + 1).join('\n'))
