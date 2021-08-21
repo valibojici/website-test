@@ -1,0 +1,1 @@
+{"content": "#include <iostream>\n\nusing namespace std;\n\nint main(){\n\tcout << \"Hello world!\";\n}"}
