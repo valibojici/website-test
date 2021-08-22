@@ -7,6 +7,7 @@ async function load(){
     data = await fetch('https://raw.githubusercontent.com/valibojici/website-test/main/output.json');
     data = await data.json();
     console.log(data);
+    console.log(data.content);
     $('#button').on('click', async ()=>{
         // let data = await fetch('https://gist.githubusercontent.com/valibojici/f6806c38994cbbcabe0e3872f0ed15b8/raw/395c4115d6fdaeca10933382868a215301929c84/test2.cpp');
        
