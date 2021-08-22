@@ -20,7 +20,7 @@ async function load(){
         $('#solution').html(decodeHtml(solution));
      
         index++;
-        index = index % 3;
+        index = index % content.length;
         hljs.highlightAll();
     });
     
