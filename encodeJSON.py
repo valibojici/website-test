@@ -1,5 +1,5 @@
 import sys
-import encodeCodeblock as ec
+import encodeHTML as ec
 import json
 
 if __name__ == '__main__':
