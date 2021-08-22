@@ -9,7 +9,6 @@ if __name__ == '__main__':
 			problem = lines[0].strip()
 			solution = lines[1].strip();
 
-			print(repr(problem)[1:-1])
 			solution = solution.split('<inline>')
 
 			for i in range(1, len(solution), 2):

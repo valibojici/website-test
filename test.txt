@@ -11,4 +11,4 @@ int main(){
 Nu compileaza pentru ca <inline>cout << "pulla";<inline> nu merge aia e bag pula.<block>
 int f(){
 	int x = 5;
-}<block>Deci neam kakat pe noi.
+}<block>Deci neam kakat pe noi.<a href="./page2.html">Page2</a> 
