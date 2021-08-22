@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-#content, #solution{
+#problem, #solution{
     font-size: 1.2rem;
     width: 100%;
     display: flex;
@@ -16,14 +16,7 @@ button{
     margin: 50px;
     padding: 10px;
 }
-
-.codeblock{
-    padding: 0;
-}
-
-#content > pre code {
-    padding: 0;
-}
+ 
 
 pre.inline {
     display: inline;
@@ -37,15 +30,18 @@ pre.inline > code{
 }
  
 
-#line-no{
-    width: 40px;
+.code-line-no{
+    width: 35px;
     color: gray;
 }
 
-#code-container{
-    width: calc(100% - 40px);
+.code-container{
+    display: flex;
 }
- 
+
+pre code.hljs{
+    padding: 0px
+}
 
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -59,4 +55,10 @@ pre.inline > code{
  
 
   .gist .blob-code-inner{ font-size:1rem !important; }
+ 
+
+pre {
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
  

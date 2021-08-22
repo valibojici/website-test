@@ -5,3 +5,10 @@ using namespace std;
 int main(){
 	cout << "Hello world!";
 }
+
+###
+
+Nu compileaza pentru ca <inline>cout << "pulla";<inline> nu merge aia e bag pula.<block>
+int f(){
+	int x = 5;
+}<block>Deci neam kakat pe noi.
