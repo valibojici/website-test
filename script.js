@@ -4,7 +4,7 @@ let index = 0;
 let data = null;
 
 async function load(){
-    data = await fetch('https://raw.githubusercontent.com/valibojici/website-test/main/test.json');
+    data = await fetch('https://raw.githubusercontent.com/valibojici/website-test/main/output.json');
     data = await data.json();
     console.log(data);
     $('#button').on('click', async ()=>{
