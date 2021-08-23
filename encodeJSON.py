@@ -31,9 +31,9 @@ if __name__ == '__main__':
 		with open(args.file) as f:
 			text = f.read()
 
-			problem = re.search(r'#BEGIN_PROBLEM(.*)#END_PROBLEM', text, flags=re.S).group(1).strip()
-			solution = re.search(r'#BEGIN_SOLUTION(.*)#END_SOLUTION', text, flags=re.S).group(1).strip()
-			tags = [tag.strip() for tag in re.search(r'#BEGIN_TAGS(.*)#END_TAGS', text, flags=re.S).group(1).strip().split(';')]
+			problem = re.search('#BEGIN_PROBLEM(.*)#END_PROBLEM', text, flags=re.S).group(1).strip()
+			solution = re.search('#BEGIN_SOLUTION(.*)#END_SOLUTION', text, flags=re.S).group(1).strip()
+			tags = [tag.strip() for tag in re.search('#BEGIN_TAGS(.*)#END_TAGS', text, flags=re.S).group(1).strip().split(';')]
 
 			solution = re.sub(
 				'<inline>(.*)<inline>',
