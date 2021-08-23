@@ -3,6 +3,17 @@
 
 using namespace std;
 
+class myClass{
+	int x;
+	int y;
+public:
+
+	myClass(int x){
+		cout << "C";
+		this.x = x;
+	}
+};
+
 int main(){
 	cout << "Hello world!";
 }
@@ -10,10 +21,7 @@ int main(){
 
 
 #BEGIN_SOLUTION
-Nu compileaza pentru ca <inline>cout << "pulla";<inline> nu merge aia e bag pula.<block>
-int f(){
-	int x = 5;
-}<block>Deci neam kakat pe noi.<a href="./page2.html">Page2</a> 
+Da compileaza, vezi linia 15: <inline> myClass *c = new myClass(5); <inline> e foarte bine
 #END_SOLUTION
 
 #BEGIN_TAGS

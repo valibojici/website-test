@@ -7,16 +7,24 @@ import argparse
 import re
 
 parser=argparse.ArgumentParser(
-    description='''Convert file to JSON. 
-	Code must begin with #BEGIN_CODE and end with #END_CODE
+    description='''
+	Convert file to JSON. 
+	Code must begin with #BEGIN_CODE and end with #END_CODE.
 	Solution must begin with #BEGIN_SOLUTION and end with #END_SOLUTION. Code blocks must be enclosed in <inline> or <block> tags.
-	Tags section must begin with #BEGIN_TAGS and end with #END_TAGS. Individual tags must be separated by''',)
+	Tags section must begin with #BEGIN_TAGS and end with #END_TAGS. Individual tags must be separated by ; ''',)
 
 parser.add_argument('file',help='input text file path')
-parser.add_argument('-w', '--write', help='file path for output')
-parser.add_argument('-u','--update', help='file path to update')
+parser.add_argument('-w', '--write', help='file path for output (overwrites)')
+parser.add_argument('-a','--append', help='file path to append to (updates file if it exists)')
 parser.add_argument('-v', '--verbose', help='prettify json', action='store_true')
 args=parser.parse_args()
+
+def escapeHTML(string):
+	chars = {'&' : '&amp;', '<' : '&lt;','>' : '&gt;','"' : '&quot;',"'" : '&#39;'}
+	for k, v in chars.items():
+		string = string.replace(k, v)
+
+	return string
 
 if __name__ == '__main__':
 	try:
@@ -29,28 +37,25 @@ if __name__ == '__main__':
 
 			solution = re.sub(
 				'<inline>(.*)<inline>',
-				lambda m: f"<pre class='inline'><code>{ec.escapeHTML(m.group(1).strip())}</code></pre>",
+				lambda m: f"<pre class='inline'><code>{escapeHTML(m.group(1).strip())}</code></pre>",
 				solution, flags=re.S)
-
-			# print(re.search('<block>(.*)<block>', solution, re.S).group(1))
 
 			solution = re.sub(
 				'<block>(.*)<block>',
-				lambda m: f"<pre><code>{ec.escapeHTML(m.group(1).strip())}</code></pre>",
+				lambda m: f"<pre><code>{escapeHTML(m.group(1).strip())}</code></pre>",
 				solution, flags=re.S)
 
 			solution = '<span>' + solution + '</span>'
 
-			if args.write or args.update:
+			if args.write or args.append:
 				if args.write:
 					with open(args.write, 'w') as jsonFile:
-						jsonFile.write(json.dumps(
-							{
+						jsonFile.write(json.dumps({
 								'content': [ {'id' : 1, 'problem' : problem, 'solution' : solution, 'tags' : tags} ]
 							}, 
 						indent=4 if args.verbose else None ))
 				else:
-					with open(args.update, 'r') as jsonFile:
+					with open(args.append, 'r') as jsonFile:
 						jsonFileData = json.loads(jsonFile.read())
 						
 						lastId = None
@@ -64,7 +69,7 @@ if __name__ == '__main__':
 						else:
 							jsonFileData['content'].append({'id' : lastId+1, 'problem' : problem, 'solution' : solution, 'tags' : tags})
 
-					with open(args.update, 'w') as jsonFile:
+					with open(args.append, 'w') as jsonFile:
 						jsonFile.write(json.dumps(jsonFileData, indent=4 if args.verbose else None ))
 			else:
 				print(json.dumps({'content': [
@@ -73,3 +78,4 @@ if __name__ == '__main__':
 
 	except Exception as e:
 		print(e)
+		
